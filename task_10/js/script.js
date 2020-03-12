@@ -47,8 +47,13 @@ window.addEventListener('DOMContentLoaded', function () {
 	});
 
 	// ======== TIMER ======== \\
-
-	let deadline = '2020-03-13'; // конечная дата
+	/* const dateEnd = '2020-03-10', //дата в формате YYYY-MM-DD
+        timeEnd = '22:00:00', //Время в формате HH:mm:ss
+        utcZ = '+05:00', //часовой пояс в формате +-hh:mm от UTC+0 (+03:00 время Московское)
+        deadLine = `${dateEnd}T${timeEnd}.000${utcZ}`, //полный формат даты YYYY-MM-DDTHH:mm:ss.sssZ
+        //deadLine = '2020-03-10', //короткий формат даты без учета UTC
+ */
+	let deadline = '2020-03-13 GMT+0200'; // конечная дата с учетом часового пояса
 
 	function getTimeRemaining(endtime) {
 		// new Date() - выводит дату в текущий момент
@@ -56,7 +61,7 @@ window.addEventListener('DOMContentLoaded', function () {
 			// t/1000 - узнаем кол-во секунд, и с помощью %  узнаем остаток от целого числа секунд
 			seconds = Math.floor((t / 1000) % 60),
 			minutes = Math.floor((t / 1000 / 60) % 60), // остаток от целого числа минут 
-			hours = Math.floor((t / (1000 * 60 * 60)) - 2); // (-2) - для корректировки Часового пояса
+			hours = Math.floor((t / (1000 * 60 * 60)));
 		// hours = Math.floor((t/1000/60/60) % 24), // остаток от целого числа часов
 		// days = Math.floor((t/(1000*60*60*24))); // узнаем кол-во дней
 
